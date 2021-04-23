@@ -1,4 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/core";
 import React from "react";
 import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 
@@ -7,6 +8,10 @@ import colors from "../styles/colors";
 import fonts from "../styles/fonts";
 
 export function Confirmation() {
+  const navigation = useNavigation();
+  function handleStart() {
+    navigation.navigate("PlantSelect");
+  }
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.content}>
@@ -17,7 +22,7 @@ export function Confirmation() {
           Agora vamos começar a cuidar das suas plantas
         </Text>
         <View style={styles.footer}>
-          <Button title={"Inicio"} />
+          <Button title={"Confirmar"} onPress={handleStart} />
         </View>
       </View>
     </SafeAreaView>
@@ -54,11 +59,11 @@ const styles = StyleSheet.create({
     fontSize: 17,
     paddingHorizontal: 20,
     color: colors.heading,
-    marginTop: 12
+    marginTop: 12,
   },
   footer: {
     width: "100%",
     paddingHorizontal: 30,
-    marginTop: 30
+    marginTop: 30,
   },
 });
